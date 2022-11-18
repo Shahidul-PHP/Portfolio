@@ -1,4 +1,4 @@
-# Develop a Portfolio Site Usign RAW PHP & MySqL 
+# Develop a Portfolio Site Using RAW PHP & MySqL 
 
 ## Creative IT Professional Web Development - Class 11 
 
