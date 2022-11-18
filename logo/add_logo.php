@@ -29,11 +29,11 @@ $make_query = mysqli_query($db_connect, $select_logo);
                                     <td><img width="70" src="../uploads/logo/<?= $logo['logo'] ?>" alt=""></td>
 
                                     <td>
-                                        <a class="btn btn-<?= ($logo['status'] == 1) ? 'success' : 'secondary' ?> text-capitalize w-100" href="logo.php?id=<?= $logo['id']?>"><?= ($logo['status'] == 1) ? 'active' : 'deactive' ?></a>
+                                        <a class="btn btn-<?= ($logo['status'] == 1) ? 'success' : 'secondary' ?> text-capitalize w-100" href="logo.php?id=<?= $logo['id'] ?>"><?= ($logo['status'] == 1) ? 'active' : 'deactive' ?></a>
                                     </td>
 
                                     <td>
-                                        <button data-id="delete.php?id=<?= $logo['id'] ?>" class="delete-btn btn btn-danger">Delete</button>
+                                        <a href="delete.php?id=<?= $logo['id'] ?>" class="delete-btn btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -65,9 +65,20 @@ $make_query = mysqli_query($db_connect, $select_logo);
         </div>
     </div>
 </div>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
-
+<?php if (isset($_SESSION['success'])) { ?>
+    <script>
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: '<?= $_SESSION['success'] ?>',
+            showConfirmButton: false,
+            timer: 2500
+        })
+    </script>
+<?php }
+unset($_SESSION['success']) ?>
 
 
 
