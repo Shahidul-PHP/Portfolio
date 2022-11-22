@@ -129,6 +129,11 @@ $after_assoc = mysqli_fetch_assoc($res);
                             <i class="fa-brands fa-php"></i> Add Logo
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../Portfolio/banner/edit_banner.php">
+                            <i class="far fa-pennant"></i>Edit Banner
+                        </a>
+                    </li>
                     <br>
 
                     <li class="nav-item" style="margin-top: 250px;">

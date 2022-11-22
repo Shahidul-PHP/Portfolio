@@ -1,13 +1,15 @@
 <?php
+session_start();
 require 'db.php';
-
+//LOGO COMMAND
 $select_logo = "SELECT * FROM logos WHERE status = 1";
-$select = mysqli_query($db_connect,$select_logo);
+$select = mysqli_query($db_connect, $select_logo);
 $after_assoc_logo = mysqli_fetch_assoc($select);
-
+// BANNER COMMAND
+$select_banner = "SELECT * FROM banner";
+$select_banner_result = mysqli_query($db_connect, $select_banner);
+$after_assoc_banner = mysqli_fetch_assoc($select_banner_result);
 ?>
-
-
 
 <!doctype html>
 <html class="no-js" lang="en">
@@ -59,7 +61,7 @@ $after_assoc_logo = mysqli_fetch_assoc($select);
                     <div class="col-xl-12">
                         <div class="main-menu">
                             <nav class="navbar navbar-expand-lg">
-                                <a href="index.html" class="navbar-brand logo-sticky-none"><img width="80" src="uploads/logo/<?= $after_assoc_logo['logo']?>" alt="Logo"></a>
+                                <a href="index.html" class="navbar-brand logo-sticky-none"><img width="80" src="uploads/logo/<?= $after_assoc_logo['logo'] ?>" alt="Logo"></a>
 
 
                                 <a href="index.html" class="navbar-brand s-logo-none"><img src="img/logo/s_logo.png" alt="Logo"></a>
@@ -75,7 +77,7 @@ $after_assoc_logo = mysqli_fetch_assoc($select);
                                         <li class="nav-item"><a class="nav-link" href="#service">service</a></li>
                                         <li class="nav-item"><a class="nav-link" href="#portfolio">portfolio</a></li>
                                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="login.php" target="_blank">Login</a></li>                                  
+                                        <li class="nav-item"><a class="nav-link" href="login.php" target="_blank">Login</a></li>
 
                                     </ul>
                                 </div>
@@ -136,9 +138,9 @@ $after_assoc_logo = mysqli_fetch_assoc($select);
                 <div class="row align-items-center">
                     <div class="col-xl-7 col-lg-6">
                         <div class="banner-content">
-                            <h6 class="wow fadeInUp" data-wow-delay="0.2s">HELLO!</h6>
-                            <h2 class="wow fadeInUp" data-wow-delay="0.4s">I am Will Smith</h2>
-                            <p class="wow fadeInUp" data-wow-delay="0.6s">I'm Will Smith, professional web developer with long time experience in this field​.</p>
+                            <h6 class="wow fadeInUp" data-wow-delay="0.2s"><?= $after_assoc_banner['sub_title'] ?></h6>
+                            <h2 class="wow fadeInUp" data-wow-delay="0.4s"><?= $after_assoc_banner['title'] ?></h2>
+                            <p class="wow fadeInUp" data-wow-delay="0.6s"><?= $after_assoc_banner['desp'] ?></p>
                             <div class="banner-social wow fadeInUp" data-wow-delay="0.8s">
                                 <ul>
                                     <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -148,6 +150,7 @@ $after_assoc_logo = mysqli_fetch_assoc($select);
                                 </ul>
                             </div>
                             <a href="#" class="btn wow fadeInUp" data-wow-delay="1s">SEE PORTFOLIOS</a>
+
                         </div>
                     </div>
                     <div class="col-xl-5 col-lg-6 d-none d-lg-block">
