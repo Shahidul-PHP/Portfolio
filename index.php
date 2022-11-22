@@ -9,6 +9,10 @@ $after_assoc_logo = mysqli_fetch_assoc($select);
 $select_banner = "SELECT * FROM banner";
 $select_banner_result = mysqli_query($db_connect, $select_banner);
 $after_assoc_banner = mysqli_fetch_assoc($select_banner_result);
+                                        //BANNER IMG
+$select_banner_img = "SELECT * FROM banner_img WHERE status=1";
+$select_bannerImg_result = mysqli_query($db_connect, $select_banner_img);
+$after_assoc_bannerImg = mysqli_fetch_assoc($select_bannerImg_result);
 ?>
 
 <!doctype html>
@@ -155,7 +159,7 @@ $after_assoc_banner = mysqli_fetch_assoc($select_banner_result);
                     </div>
                     <div class="col-xl-5 col-lg-6 d-none d-lg-block">
                         <div class="banner-img text-right">
-                            <img src="img/banner/banner_img.png" alt="">
+                            <img src="uploads/banner/<?= $after_assoc_bannerImg['img']?>" alt="">
                         </div>
                     </div>
                 </div>
