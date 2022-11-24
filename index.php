@@ -9,16 +9,18 @@ $after_assoc_logo = mysqli_fetch_assoc($select);
 $select_banner = "SELECT * FROM banner";
 $select_banner_result = mysqli_query($db_connect, $select_banner);
 $after_assoc_banner = mysqli_fetch_assoc($select_banner_result);
-                                        //BANNER IMG
+//BANNER IMG
 $select_banner_img = "SELECT * FROM banner_img WHERE status=1";
 $select_bannerImg_result = mysqli_query($db_connect, $select_banner_img);
 $after_assoc_bannerImg = mysqli_fetch_assoc($select_bannerImg_result);
+// SOCIAL ICON
+$select_banner_icon = "SELECT * FROM social WHERE status=1";
+$select_bannerIcon_result = mysqli_query($db_connect, $select_banner_icon);
+
 ?>
 
 <!doctype html>
 <html class="no-js" lang="en">
-
-<!-- Mirrored from themebeyond.com/html/kufa/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 06 Feb 2020 06:27:43 GMT -->
 
 <head>
     <meta charset="utf-8">
@@ -122,10 +124,9 @@ $after_assoc_bannerImg = mysqli_fetch_assoc($select_bannerImg_result);
                 </div>
             </div>
             <div class="social-icon-right mt-20">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
+                <?php foreach ($select_bannerIcon_result as $iconn) { ?>
+                    <a target="_blank" href="<?= $iconn['link'] ?>"><i class="<?= $iconn['icon'] ?>"></i></a>
+                <?php } ?>
             </div>
         </div>
         <div class="offcanvas-overly"></div>
@@ -147,10 +148,9 @@ $after_assoc_bannerImg = mysqli_fetch_assoc($select_bannerImg_result);
                             <p class="wow fadeInUp" data-wow-delay="0.6s"><?= $after_assoc_banner['desp'] ?></p>
                             <div class="banner-social wow fadeInUp" data-wow-delay="0.8s">
                                 <ul>
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                                    <?php foreach ($select_bannerIcon_result as $icon) { ?>
+                                        <li><a target="_blank" href="<?= $icon['link'] ?>"><i class="<?= $icon['icon'] ?>"></i></a></li>
+                                    <?php } ?>
                                 </ul>
                             </div>
                             <a href="#" class="btn wow fadeInUp" data-wow-delay="1s">SEE PORTFOLIOS</a>
@@ -159,7 +159,7 @@ $after_assoc_bannerImg = mysqli_fetch_assoc($select_bannerImg_result);
                     </div>
                     <div class="col-xl-5 col-lg-6 d-none d-lg-block">
                         <div class="banner-img text-right">
-                            <img src="uploads/banner/<?= $after_assoc_bannerImg['img']?>" alt="">
+                            <img src="uploads/banner/<?= $after_assoc_bannerImg['img'] ?>" alt="">
                         </div>
                     </div>
                 </div>
@@ -610,6 +610,7 @@ $after_assoc_bannerImg = mysqli_fetch_assoc($select_bannerImg_result);
 
 
     <!-- JS here -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.1.0/css/v4-shims.min.css" integrity="sha512-p++g4gkFY8DBqLItjIfuKJPFvTPqcg2FzOns2BNaltwoCOrXMqRIOqgWqWEvuqsj/3aVdgoEo2Y7X6SomTfUPA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="js/vendor/jquery-1.12.4.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

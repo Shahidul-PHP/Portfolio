@@ -27,6 +27,7 @@ $after_assoc = mysqli_fetch_assoc($res);
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <link href="/Portfolio/admin_dashboard/assets/js/plugins/nucleo/css/nucleo.css" rel="stylesheet" />
     <link href="/Portfolio/admin_dashboard/assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- CSS Files -->
     <link href="/Portfolio/admin_dashboard/assets/css/argon-dashboard.css?v=1.1.2" rel="stylesheet" />
 </head>
@@ -134,8 +135,14 @@ $after_assoc = mysqli_fetch_assoc($res);
                             <i class="far fa-pennant"></i>Edit Banner
                         </a>
                     </li>
-                    <br>
 
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../Portfolio/social/social.php">
+                            <i class="far fa-pennant"></i>Social Icon
+                        </a>
+                    </li>
+
+                    <br>
                     <li class="nav-item" style="margin-top: 250px;">
                         <a class="nav-link" href="../../Portfolio/logout.php">
                             <i class="fa-solid fa-house"></i> Log Out
