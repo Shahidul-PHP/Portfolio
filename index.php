@@ -24,6 +24,11 @@ $after = mysqli_fetch_assoc($result);
 $about = "SELECT * FROM about";
 $result2 = mysqli_query($db_connect, $about);
 $after2 = mysqli_fetch_assoc($result2);
+// ABOUT IMAGE
+$select_status = "SELECT * FROM about_img WHERE status=1";
+$make_status_query = mysqli_query($db_connect,$select_status);
+$after_assoc = mysqli_fetch_assoc($make_status_query);
+
 ?>
 
 <!doctype html>
@@ -180,7 +185,7 @@ $after2 = mysqli_fetch_assoc($result2);
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="about-img">
-                            <img src="img/banner/banner_img2.png" title="me-01" alt="me-01">
+                            <img src="uploads/about_image/<?= $after_assoc['img']?>" title="me-01" alt="me-01">
                         </div>
                     </div>
                     <div class="col-lg-6 pr-90">
