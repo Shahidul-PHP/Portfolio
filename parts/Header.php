@@ -14,6 +14,18 @@ $after_assoc = mysqli_fetch_assoc($res);
         height: 110px;
         border-radius: 50%;
     }
+
+    #menuBar:visited {
+        color: purple;
+    }
+
+    #menuBar:link {
+        color: red;
+    }
+
+    #menubar:active {
+        color: blue;
+    }
 </style>
 
 <head>
@@ -116,35 +128,50 @@ $after_assoc = mysqli_fetch_assoc($res);
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link " href="/Portfolio/user_info/profile.php">
+                        <a id="menuBar" class="aa nav-link " href="/Portfolio/user_info/profile.php">
                             <i class="fa-sharp fa-solid fa-lock"></i> Admin Profie
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../../Portfolio/user_info/users.php">
+                        <a id="menuBar" class="bb nav-link" href="../../Portfolio/user_info/users.php">
                             <i class="fa-sharp fa-solid fa-user"></i> User List
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../../Portfolio/logo/add_logo.php">
-                            <i class="fa-brands fa-php"></i> Add Logo
+                        <a id="menuBar" class="nav-link" href="../../Portfolio/logo/add_logo.php">
+                            <i class="fa-solid fa-plus"></i> Add Logo
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../../Portfolio/banner/edit_banner.php">
-                            <i class="far fa-pennant"></i>Edit Banner
+                        <a id="menuBar" class="nav-link" href="../../Portfolio/banner/edit_banner.php">
+                            <i class="fa-solid fa-pen-to-square"></i></i>Edit Banner
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="../../Portfolio/social/social.php">
-                            <i class="far fa-pennant"></i>Social Icon
+                        <a id="menuBar" id="menuBar" class="nav-link" href="../../Portfolio/social/social.php">
+                            <i class="fa-solid fa-share-from-square"></i></i>Social Icon
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="menuBar" class="nav-link" href="../../Portfolio/SideAddress/details.php">
+                            <i class="fa-solid fa-address-card"></i>Side Address
+                        </a>
+                    </li>
+                    <li class="bg primary nav-item">
+                        <a id="menuBar" class="nav-link" href="../../Portfolio/About/about.php">
+                            <i class="fa-solid fa-eject"></i>About Me Section
+                        </a>
+                    </li>
+                    <li class="bg primary nav-item">
+                        <a id="menuBar" class="nav-link" href="../../Portfolio/about_img/about_img.php">
+                            <i class="fa-solid fa-image"></i>About Image
                         </a>
                     </li>
 
                     <br>
                     <li class="nav-item" style="margin-top: 250px;">
-                        <a class="nav-link" href="../../Portfolio/logout.php">
+                        <a id="menuBar" class="nav-link" href="../../Portfolio/logout.php">
                             <i class="fa-solid fa-house"></i> Log Out
                         </a>
                     </li>
@@ -198,93 +225,7 @@ $after_assoc = mysqli_fetch_assoc($res);
         <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
             <div class="container-fluid">
                 <div class="header-body">
-                    <!-- Card stats -->
-                    <div class="row">
-                        <div class="col-xl-3 col-lg-6">
-                            <div class="card card-stats mb-4 mb-xl-0">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col">
-                                            <h5 class="card-title text-uppercase text-muted mb-0">Traffic</h5>
-                                            <span class="h2 font-weight-bold mb-0">350,897</span>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
-                                                <i class="fas fa-chart-bar"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="mt-3 mb-0 text-muted text-sm">
-                                        <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                                        <span class="text-nowrap">Since last month</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-6">
-                            <div class="card card-stats mb-4 mb-xl-0">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col">
-                                            <h5 class="card-title text-uppercase text-muted mb-0">New users</h5>
-                                            <span class="h2 font-weight-bold mb-0">2,356</span>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
-                                                <i class="fas fa-chart-pie"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="mt-3 mb-0 text-muted text-sm">
-                                        <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i> 3.48%</span>
-                                        <span class="text-nowrap">Since last week</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-6">
-                            <div class="card card-stats mb-4 mb-xl-0">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col">
-                                            <h5 class="card-title text-uppercase text-muted mb-0">Sales</h5>
-                                            <span class="h2 font-weight-bold mb-0">924</span>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
-                                                <i class="fas fa-users"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="mt-3 mb-0 text-muted text-sm">
-                                        <span class="text-warning mr-2"><i class="fas fa-arrow-down"></i> 1.10%</span>
-                                        <span class="text-nowrap">Since yesterday</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-6">
-                            <div class="card card-stats mb-4 mb-xl-0">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col">
-                                            <h5 class="card-title text-uppercase text-muted mb-0">Performance</h5>
-                                            <span class="h2 font-weight-bold mb-0">49,65%</span>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="icon icon-shape bg-info text-white rounded-circle shadow">
-                                                <i class="fas fa-percent"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="mt-3 mb-0 text-muted text-sm">
-                                        <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 12%</span>
-                                        <span class="text-nowrap">Since last month</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>

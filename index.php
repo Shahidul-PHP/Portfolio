@@ -16,7 +16,14 @@ $after_assoc_bannerImg = mysqli_fetch_assoc($select_bannerImg_result);
 // SOCIAL ICON
 $select_banner_icon = "SELECT * FROM social WHERE status=1";
 $select_bannerIcon_result = mysqli_query($db_connect, $select_banner_icon);
-
+// SIDE ADDRESS
+$select_side = "SELECT * FROM side_address";
+$result = mysqli_query($db_connect, $select_side);
+$after = mysqli_fetch_assoc($result);
+//ABOUT SECTION
+$about = "SELECT * FROM about";
+$result2 = mysqli_query($db_connect, $about);
+$after2 = mysqli_fetch_assoc($result2);
 ?>
 
 <!doctype html>
@@ -111,16 +118,15 @@ $select_bannerIcon_result = mysqli_query($db_connect, $select_banner_icon);
             <div class="side-info mb-30">
                 <div class="contact-list mb-30">
                     <h4>Office Address</h4>
-                    <p>123/A, Miranda City Likaoli
-                        Prikano, Dope</p>
+                    <p><?= $after['address'] ?></p>
                 </div>
                 <div class="contact-list mb-30">
                     <h4>Phone Number</h4>
-                    <p>+0989 7876 9865 9</p>
+                    <p><?= $after['phone'] ?></p>
                 </div>
                 <div class="contact-list mb-30">
                     <h4>Email Address</h4>
-                    <p>info@example.com</p>
+                    <p><?= $after['email'] ?></p>
                 </div>
             </div>
             <div class="social-icon-right mt-20">
@@ -183,9 +189,7 @@ $select_bannerIcon_result = mysqli_query($db_connect, $select_banner_icon);
                             <h2>About Me</h2>
                         </div>
                         <div class="about-content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, sed repudiandae odit deserunt, quas
-                                quibusdam necessitatibus nesciunt eligendi esse sit non reprehenderit quisquam asperiores maxime
-                                blanditiis culpa vitae velit. Numquam!</p>
+                            <p><?= $after2['about']?></p>
                             <h3>Education:</h3>
                         </div>
                         <!-- Education Item -->
