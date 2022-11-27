@@ -168,6 +168,11 @@ $after_assoc = mysqli_fetch_assoc($res);
                             <i class="fa-solid fa-image"></i>About Image
                         </a>
                     </li>
+                    <li class="bg primary nav-item">
+                        <a id="menuBar" class="nav-link" href="../../Portfolio/Skills/add_skill.php"><i class="fa-solid fa-kitchen-set"></i>
+                            Add Skill's
+                        </a>
+                    </li>
 
                     <br>
                     <li class="nav-item" style="margin-top: 250px;">
