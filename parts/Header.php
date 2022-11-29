@@ -174,8 +174,8 @@ $after_assoc = mysqli_fetch_assoc($res);
                         </a>
                     </li>
                     <li class="bg primary nav-item">
-                        <a id="menuBar" class="nav-link" href="../../Portfolio/Services/insert_service.php"><i class="fa-brands fa-servicestack"></i>
-                            Service's
+                        <a id="menuBar" class="nav-link" href="../../Portfolio/Service/add_service.php"><i class="fa-brands fa-servicestack"></i>
+                            Add Service's
                         </a>
                     </li>
 
