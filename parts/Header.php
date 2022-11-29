@@ -173,6 +173,11 @@ $after_assoc = mysqli_fetch_assoc($res);
                             Add Skill's
                         </a>
                     </li>
+                    <li class="bg primary nav-item">
+                        <a id="menuBar" class="nav-link" href="../../Portfolio/Services/insert_service.php"><i class="fa-brands fa-servicestack"></i>
+                            Service's
+                        </a>
+                    </li>
 
                     <br>
                     <li class="nav-item" style="margin-top: 250px;">

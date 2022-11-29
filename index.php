@@ -31,8 +31,6 @@ $after_assoc = mysqli_fetch_assoc($make_status_query);
 //SKILLS 
 $select_status_skills = "SELECT * FROM skills WHERE status=1";
 $make_skills_query = mysqli_query($db_connect,$select_status_skills);
-
-
 ?>
 
 <!doctype html>
@@ -242,7 +240,7 @@ $make_skills_query = mysqli_query($db_connect,$select_status_skills);
                     <div class="col-lg-4 col-md-6">
                         <div class="icon_box_01 wow fadeInLeft" data-wow-delay="0.2s">
                             <i class="fab fa-react"></i>
-                            <h3>Creative Design</h3>
+                            <h3>WEB</h3>
                             <p>
                                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum indust.
                             </p>
