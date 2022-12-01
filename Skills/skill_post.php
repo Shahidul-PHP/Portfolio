@@ -7,7 +7,7 @@ $desp = $_POST['desp'];
 $percentage = $_POST['percentage'];
 
 
-$insert ="INSERT INTO skills(title,desp,percentage)VALUES('$title', '$desp', '$percentage')";
+$insert ="INSERT INTO skills(title_sk,desp_sk,percentage)VALUES('$title', '$desp', '$percentage')";
 
 $make_query = mysqli_query($db_connect,$insert);
 $_SESSION['skill'] = "Skills are Addedd Suuccesfully";

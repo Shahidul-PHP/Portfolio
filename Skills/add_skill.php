@@ -28,8 +28,8 @@ $res_skills = mysqli_query($db_connect, $select_skills);
                         <?php foreach ($res_skills as $sl => $skills) { ?>
                             <tr>
                                 <td><?= $sl + 1 ?></td>
-                                <td><?= $skills['title'] ?></td>
-                                <td><?= $skills['desp'] ?></td>
+                                <td><?= $skills['title_sk'] ?></td>
+                                <td><?= $skills['desp_sk'] ?></td>
                                 <td><?= $skills['percentage'] ?></td>
 
                                 <td>

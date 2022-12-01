@@ -79,6 +79,7 @@ $query_icon = mysqli_query($db_connect, $select_icons);
                         <?php foreach ($query_icon as $sl => $show_icon) { ?>
                             <tr>
                                 <td><?= $sl + 1 ?></td>
+                                
                                 <td><i style="font-size: 22px;" class="<?= $show_icon['icon'] ?>"></i></td>
                                 <td>
                                     <a href="show_icon.php?id=<?= $show_icon['id'] ?>" class="w-100 btn btn-<?= $show_icon['status'] == 1 ? 'success' : 'secondary' ?>"><?= $show_icon['status'] == 1 ? 'active' : 'deactive' ?></a>

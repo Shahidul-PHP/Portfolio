@@ -30,7 +30,10 @@ $make_status_query = mysqli_query($db_connect, $select_status);
 $after_assoc = mysqli_fetch_assoc($make_status_query);
 //SKILLS 
 $select_status_skills = "SELECT * FROM skills WHERE status=1";
-$make_skills_query = mysqli_query($db_connect,$select_status_skills);
+$make_skills_query = mysqli_query($db_connect, $select_status_skills);
+//SERVICES'S
+$select_services = "SELECT * FROM service_list";
+$make_serv_query = mysqli_query($db_connect, $select_services);
 ?>
 
 <!doctype html>
@@ -42,6 +45,7 @@ $make_skills_query = mysqli_query($db_connect,$select_status_skills);
     <title>Kufa - Personal Portfolio HTML5 Template</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
     <!-- Place favicon.ico in the root directory -->
@@ -58,7 +62,7 @@ $make_skills_query = mysqli_query($db_connect,$select_status_skills);
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <style>
-        .line{
+        .line {
             margin-left: 78px;
         }
     </style>
@@ -207,13 +211,13 @@ $make_skills_query = mysqli_query($db_connect,$select_status_skills);
                         <!-- Education Item -->
                         <?php foreach ($make_skills_query as $skill) { ?>
                             <div class="education">
-                                <div class="year"><?= $skill['title'] ?></div>
+                                <div class="year"><?= $skill['title_sk'] ?></div>
                                 <div class="line"></div>
                                 <div class="location">
-                                    <span><?= $skill['desp'] ?></span>
+                                    <span><?= $skill['desp_sk'] ?></span>
                                     <div class="progressWrapper">
                                         <div class="progress">
-                                            <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s" data-wow-duration="2s" role="progressbar" style="width: <?= $skill['percentage'] ?>%;" aria-valuenow="<?= $skill['percentage']?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                            <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s" data-wow-duration="2s" role="progressbar" style="width: <?= $skill['percentage'] ?>%;" aria-valuenow="<?= $skill['percentage'] ?>" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -237,60 +241,18 @@ $make_skills_query = mysqli_query($db_connect,$select_status_skills);
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="icon_box_01 wow fadeInLeft" data-wow-delay="0.2s">
-                            <i class="fab fa-react"></i>
-                            <h3>WEB</h3>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum indust.
-                            </p>
+                    <?php foreach ($make_serv_query as $boltu) { ?>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="icon_box_01 wow fadeInLeft" data-wow-delay="0.2s">
+                                <i style="font-family:fontawesome;" class="<?= $boltu['icon'] ?>"></i>
+
+                                <h3><?= $boltu['service_title'] ?></h3>
+                                <p>
+                                    <?= $boltu['service_detail'] ?>
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="icon_box_01 wow fadeInLeft" data-wow-delay="0.4s">
-                            <i class="fab fa-free-code-camp"></i>
-                            <h3>Unlimited Features</h3>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum indust.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="icon_box_01 wow fadeInLeft" data-wow-delay="0.6s">
-                            <i class="fal fa-desktop"></i>
-                            <h3>Ultra Responsive</h3>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum indust.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="icon_box_01 wow fadeInLeft" data-wow-delay="0.2s">
-                            <i class="fal fa-lightbulb-on"></i>
-                            <h3>Creative Ideas</h3>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum indust.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="icon_box_01 wow fadeInLeft" data-wow-delay="0.4s">
-                            <i class="fal fa-edit"></i>
-                            <h3>Easy Customization</h3>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum indust.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="icon_box_01 wow fadeInLeft" data-wow-delay="0.6s">
-                            <i class="fal fa-headset"></i>
-                            <h3>Supper Support</h3>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum indust.
-                            </p>
-                        </div>
-                    </div>
+                    <?php } ?>
                 </div>
             </div>
         </section>
@@ -585,7 +547,11 @@ $make_skills_query = mysqli_query($db_connect,$select_status_skills);
 
 
     <!-- JS here -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.1.0/css/v4-shims.min.css" integrity="sha512-p++g4gkFY8DBqLItjIfuKJPFvTPqcg2FzOns2BNaltwoCOrXMqRIOqgWqWEvuqsj/3aVdgoEo2Y7X6SomTfUPA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+
+
     <script src="js/vendor/jquery-1.12.4.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
