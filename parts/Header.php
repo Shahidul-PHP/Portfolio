@@ -14,18 +14,6 @@ $after_assoc = mysqli_fetch_assoc($res);
         height: 110px;
         border-radius: 50%;
     }
-
-    #menuBar:visited {
-        color: purple;
-    }
-
-    #menuBar:link {
-        color: red;
-    }
-
-    #menubar:active {
-        color: blue;
-    }
 </style>
 
 <head>
@@ -176,6 +164,11 @@ $after_assoc = mysqli_fetch_assoc($res);
                     <li class="bg primary nav-item">
                         <a id="menuBar" class="nav-link" href="../../Portfolio/Service/add_service.php"><i class="fa-brands fa-servicestack"></i>
                             Add Service's
+                        </a>
+                    </li>
+                    <li class="bg primary nav-item">
+                        <a id="menuBar" class="nav-link" href="../../Portfolio/work/work.php"><i class="fa-solid fa-briefcase"></i>
+                            Add New Work
                         </a>
                     </li>
 
