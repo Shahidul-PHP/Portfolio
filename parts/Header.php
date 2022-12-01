@@ -171,6 +171,11 @@ $after_assoc = mysqli_fetch_assoc($res);
                             Add New Work
                         </a>
                     </li>
+                    <li class="bg primary nav-item">
+                        <a id="menuBar" class="nav-link" href="../../Portfolio/Features/feat.php"><i class="fa-solid fa-briefcase"></i>
+                            Feature's
+                        </a>
+                    </li>
 
                     <br>
                     <li class="nav-item" style="margin-top: 250px;">

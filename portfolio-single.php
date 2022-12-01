@@ -1,11 +1,20 @@
 <?php
 session_start();
+require 'login_check.php';
 require 'db.php';
 
 $id = $_GET['id'];
 $select = "SELECT * FROM works WHERE id = $id";
 $hh = mysqli_query($db_connect, $select);
 $hh2 = mysqli_fetch_assoc($hh);
+
+?>
+
+<?php
+$user_id = $hh2['user_id'];
+$select_user = "SELECT * FROM users WHERE id = $user_id";
+$make_qr = mysqli_query($db_connect, $select_user);
+$make_assoc = mysqli_fetch_assoc($make_qr);
 
 ?>
 
@@ -169,15 +178,16 @@ $hh2 = mysqli_fetch_assoc($hh);
                             <div class="avatar-post mt-70 mb-60">
                                 <ul>
                                     <li>
-                                        <div class="post-avatar-img">
-                                            <img src="" alt="img">
+                                        <div class="m-3">
+                                            <?php if ($make_assoc['img'] == null) { ?>
+                                                <img width="140" height="120" src="uploads/users/av.png" alt="">
+                                            <?php } else { ?>
+                                                <img style="border-radius: 50%;" width="110" height="110" src="uploads/users/<?= $make_assoc['img']?>" alt="">
+                                            <?php } ?>
                                         </div>
                                         <div class="post-avatar-content">
-                                            <h5>Thomas Herlihy</h5>
-                                            <p>Vehicula dolor amet consectetur adipiscing elit. Cras sollicitudin, tellus vitae
-                                                condimem
-                                                egestliberos dolor auctor
-                                                tellus.</p>
+                                            <h5><?= $make_assoc['name']; ?></h5>
+                                            <p><?= $hh2['desp'] ?></p>
                                             <div class="post-avatar-social mt-15">
                                                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                                                 <a href="#"><i class="fab fa-twitter"></i></a>

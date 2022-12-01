@@ -34,9 +34,13 @@ $make_skills_query = mysqli_query($db_connect, $select_status_skills);
 //SERVICES'S
 $select_services = "SELECT * FROM service_list";
 $make_serv_query = mysqli_query($db_connect, $select_services);
-//WROKS 
+//WORKS 
 $select_works = "SELECT * FROM works";
 $make_works_query = mysqli_query($db_connect, $select_works);
+// FEATURES
+$select_feat = "SELECT * FROM feature";
+$make_feat_query = mysqli_query($db_connect, $select_feat);
+$assoc = mysqli_fetch_assoc($make_feat_query);
 ?>
 
 <!doctype html>
@@ -282,7 +286,7 @@ $make_works_query = mysqli_query($db_connect, $select_works);
                                 <div class="speaker-overlay">
                                     <span><?= $shown['category'] ?></span>
                                     <h4><a href="portfolio-single.html"><?= $shown['sub_title'] ?></a></h4>
-                                    <a href="portfolio-single.php?id=<?= $shown['id']?>" class="arrow-btn">More information <span></span></a>
+                                    <a href="portfolio-single.php?id=<?= $shown['id'] ?>" class="arrow-btn">More information <span></span></a>
                                 </div>
                             </div>
                         </div>
@@ -298,50 +302,19 @@ $make_works_query = mysqli_query($db_connect, $select_works);
             <div class="container">
                 <div class="fact-wrap">
                     <div class="row justify-content-between">
-                        <div class="col-xl-2 col-lg-3 col-sm-6">
-                            <div class="fact-box text-center mb-50">
-                                <div class="fact-icon">
-                                    <i class="flaticon-award"></i>
-                                </div>
-                                <div class="fact-content">
-                                    <h2><span class="count">245</span></h2>
-                                    <span>Feature Item</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-2 col-lg-3 col-sm-6">
-                            <div class="fact-box text-center mb-50">
-                                <div class="fact-icon">
-                                    <i class="flaticon-like"></i>
-                                </div>
-                                <div class="fact-content">
-                                    <h2><span class="count">345</span></h2>
-                                    <span>Active Products</span>
+                        <?php foreach ($make_feat_query as $fact) { ?>
+                            <div class="col-xl-2 col-lg-3 col-sm-6">
+                                <div class="fact-box text-center mb-50">
+                                    <div class="fact-icon">
+                                        <i class="flaticon-award"></i>
+                                    </div>
+                                    <div class="fact-content">
+                                        <h2><span class=""><?= $fact['count'] ?></span></h2>
+                                        <span><?= $fact['title'] ?></span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-xl-2 col-lg-3 col-sm-6">
-                            <div class="fact-box text-center mb-50">
-                                <div class="fact-icon">
-                                    <i class="flaticon-event"></i>
-                                </div>
-                                <div class="fact-content">
-                                    <h2><span class="count">39</span></h2>
-                                    <span>Year Experience</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-2 col-lg-3 col-sm-6">
-                            <div class="fact-box text-center mb-50">
-                                <div class="fact-icon">
-                                    <i class="flaticon-woman"></i>
-                                </div>
-                                <div class="fact-content">
-                                    <h2><span class="count">3</span>k</h2>
-                                    <span>Our Clients</span>
-                                </div>
-                            </div>
-                        </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -442,13 +415,23 @@ $make_works_query = mysqli_query($db_connect, $select_works);
                             <h2>Contact Information</h2>
                         </div>
                         <div class="contact-content">
-                            <p>Event definition is - somthing that happens occurre How evesnt sentence. Synonym when an unknown printer took a galley.</p>
-                            <h5>OFFICE IN <span>NEW YORK</span></h5>
+                            <p>You can contact me Via using this information which is given below</p>
+                            <h5>OFFICE IN <span>NARAYANGANJ</span></h5>
                             <div class="contact-list">
                                 <ul>
-                                    <li><i class="fas fa-map-marker"></i><span>Address :</span>Event Center park WT 22 New York</li>
-                                    <li><i class="fas fa-headphones"></i><span>Phone :</span>+9 125 645 8654</li>
-                                    <li><i class="fas fa-globe-asia"></i><span>e-mail :</span>info@exemple.com</li>
+                                    <li><i class="fas fa-map-marker"></i><span>Address </span>
+                                        <p><?= $after['address'] ?></p>
+
+                                    </li>
+                                    <li><i class="fas fa-headphones"></i><span>Phone </span>
+                                        <p><?= $after['phone'] ?></p>
+
+                                    </li>
+                                    <li><i class="fas fa-globe-asia">
+
+                                        </i><span>e-mail </span>
+                                        <p><?= $after['email'] ?></p>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -478,7 +461,7 @@ $make_works_query = mysqli_query($db_connect, $select_works);
                 <div class="row align-items-center">
                     <div class="col-12">
                         <div class="copyright-text text-center">
-                            <p>Copyright© <span>Kufa</span> | All Rights Reserved</p>
+                            <p>Copyright© <span>Shahdiul Islam Khan</span> | All Rights Reserved</p>
                         </div>
                     </div>
                 </div>
@@ -486,16 +469,7 @@ $make_works_query = mysqli_query($db_connect, $select_works);
         </div>
     </footer>
     <!-- footer-end -->
-
-
-
-
-
     <!-- JS here -->
-
-
-
-
 
     <script src="js/vendor/jquery-1.12.4.min.js"></script>
     <script src="js/popper.min.js"></script>
